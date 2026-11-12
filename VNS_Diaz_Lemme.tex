@@ -1,0 +1,58 @@
+\documentclass{beamer}
+\usepackage{amsmath, amsfonts, amssymb, array, graphicx, mathtools, tabularx}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+
+\title{VNS}
+\author{Hugo Diaz Delgado \and Alessandro Lemme}
+\institute{Università degli studi di Brescia}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Sommario}
+\tableofcontents
+\end{frame}
+
+\section{Problem definition}
+
+\subsection{A little notation}
+\begin{frame}{What are we doing}
+\quad Let's define a minimization problem. Given a set of variables $x \in X$ we want to find $x^{*} \in X$ such that 
+\begin{gather*}
+    f(x^{*}) \leq f(x) \ \forall x \in X
+\end{gather*} 
+\quad If such result exists, we want also to prove its optimality. If dealing with a continuous function, we have to admit a certain degree of tolerance such that
+\begin{gather*}
+    \frac{f(x) - f(x^{*})}{f(x^{*})} \leq \varepsilon
+\end{gather*} 
+with $\varepsilon$ small and positive. \\
+\quad Since finding $x^{*}$ is hard - meaning it is impossible to find the optimum solution in a reasonable time - one is often forced to resort to a heuristic approach which finds a solution "good enough" trading efficacy for efficiency. 
+\end{frame}
+
+\begin{frame}{Local optima}
+\quad Given the definition of neighborhood $N(x)$ as the set of points distant at most $\varepsilon$ from $x$, we define a local optimum $x_{L}$ as
+\begin{gather*}
+    x_{L} \in X : f(x_{L}) \leq f(x) \ \forall x \in N(x_{L}) \cap X
+\end{gather*} 
+however $f(x^{*})$ could differ substantially from the average value of a local minimum. There are many ways to get out of a local optimum. \\
+\textbf{Metaheuristics} are a general framework for combinatorial and global optimization problems. \\
+\textbf{Variable Neighborhood Search (VNS)} is a metaheuristic that exploits systematically the idea of neighborhood change. 
+\end{frame}
+
+\begin{frame}{Observations}
+\begin{itemize}
+\item A local minimum in a neighborhood is not necessarily so for another.
+\item A global minimum is a local minimum in every possible neighborhood.
+\item For many problems, local minima with respect to one or several neighborhoods are relatively close to each other.
+\end{itemize}
+Corollary of the empirical observation 3: a local optimum gives information about the global one.
+\end{frame}
+
+\end{document}
