@@ -16,7 +16,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Sommario}
+\begin{frame}{Outline}
 \tableofcontents
 \end{frame}
 
@@ -24,35 +24,100 @@
 
 \subsection{A little notation}
 \begin{frame}{What are we doing}
-\quad Let's define a minimization problem. Given a set of variables $x \in X$ we want to find $x^{*} \in X$ such that 
+\quad Let's define a minimization problem:
+\begin{gather*}
+    \min f(x) \quad \text{subject to} \quad x \in X
+\end{gather*}
+\quad Given the set of feasible solutions $X$, we want to find $x^{*} \in X$ such that 
 \begin{gather*}
     f(x^{*}) \leq f(x) \ \forall x \in X
 \end{gather*} 
-\quad If such result exists, we want also to prove its optimality. If dealing with a continuous function, we have to admit a certain degree of tolerance such that
+\quad If such result exists, an \textbf{exact algorithm} also proves its optimality (or shows $X = \emptyset$). If dealing with a continuous function, we have to admit a certain degree of tolerance such that
 \begin{gather*}
-    \frac{f(x) - f(x^{*})}{f(x^{*})} \leq \varepsilon
+    \frac{f(x) - f(x^{*})}{f(x^{*})} < \varepsilon \ \forall x \in X
 \end{gather*} 
-with $\varepsilon$ small and positive. \\
-\quad Since finding $x^{*}$ is hard - meaning it is impossible to find the optimum solution in a reasonable time - one is often forced to resort to a heuristic approach which finds a solution "good enough" trading efficacy for efficiency. 
+with $\varepsilon$ small and positive.
+\end{frame}
+
+\begin{frame}{Why heuristics?}
+\quad Many instances in Operational Research are \textbf{NP-hard} (or have high polynomial complexity), so finding $x^{*}$ with exact methods in a reasonable time is impossible. \\
+\vspace{0.2cm}
+\quad One is often forced to resort to \textbf{heuristics}, which find a solution $x_h$ "good enough" quickly, trading efficacy for efficiency (without proof of optimality). \\
+\vspace{0.2cm}
+\quad Some heuristics have a worst-case guarantee:
+\begin{gather*}
+    \frac{f(x_{h}) - f(x)}{f(x_{h})} \leq \varepsilon \ \forall x \in X
+\end{gather*}
+although this theoretical $\varepsilon$ is usually much larger than the error observed in practice.
 \end{frame}
 
 \begin{frame}{Local optima}
-\quad Given the definition of neighborhood $N(x)$ as the set of points distant at most $\varepsilon$ from $x$, we define a local optimum $x_{L}$ as
+\quad Given a neighborhood $N(x)$ of $x$, we define a local optimum $x_{L}$ as
 \begin{gather*}
     x_{L} \in X : f(x_{L}) \leq f(x) \ \forall x \in N(x_{L}) \cap X
 \end{gather*} 
-however $f(x^{*})$ could differ substantially from the average value of a local minimum. There are many ways to get out of a local optimum. \\
-\textbf{Metaheuristics} are a general framework for combinatorial and global optimization problems. \\
-\textbf{Variable Neighborhood Search (VNS)} is a metaheuristic that exploits systematically the idea of neighborhood change. 
+however $f(x^{*})$ could differ substantially from the average value of a local minimum. There are many ways to get out of a local optimum and its valley. \\
+\vspace{0.2cm}
+\textbf{Metaheuristics} are a general framework for combinatorial and global optimization problems (e.g., Simulated Annealing). \\
+\vspace{0.2cm}
+\textbf{Variable Neighborhood Search (VNS)} is a metaheuristic that exploits systematically the idea of neighborhood change, both to descend to local minima and to escape from the valleys containing them. Moreover, it requires \textbf{few or no parameters} and gives insight into its performance.
 \end{frame}
 
 \begin{frame}{Observations}
+VNS systematically exploits three facts:
+\vspace{0.2cm}
 \begin{itemize}
 \item A local minimum in a neighborhood is not necessarily so for another.
 \item A global minimum is a local minimum in every possible neighborhood.
 \item For many problems, local minima with respect to one or several neighborhoods are relatively close to each other.
 \end{itemize}
-Corollary of the empirical observation 3: a local optimum gives information about the global one.
+
+\vspace{0.3cm}
+Corollary of the empirical observation 3: a local optimum gives information about the global one (e.g., sharing variable values), so an organized study of its neighborhood is useful.
+\end{frame}
+
+\begin{frame}{Tutorial structure}
+\begin{itemize}
+\item \textbf{Preliminaries:} Gathering and evaluating information about the problem.
+\item \textbf{VND (Variable Neighborhood Descent):} Deterministic descent.
+\item \textbf{RVNS (Reduced VNS):} Stochastic neighborhood exploration.
+\item \textbf{Basic and General VNS:} Merging VND and RVNS.
+\item \textbf{SVNS (Skewed VNS):} Getting out of very large valleys.
+\item \textbf{VNDS (Variable Neighborhood Decomposition Search):} Two-level scheme for very large instances.
+\item \textbf{Performance analysis:} Distance-to-target diagrams and valley profiles.
+\end{itemize}
+\end{frame}
+
+
+
+
+\section{Preliminaries: Documentation}
+
+\begin{frame}{Literature review}
+\quad Before designing a VNS, we must collect existing papers about the problem (which may have different names in different fields).
+
+\vspace{0.2cm}
+We study the literature to answer four main questions:
+\begin{enumerate}
+\item \textbf{Difficulty:} Is the problem NP-hard? If it is in P, is the exact algorithm fast enough for real instances?
+\item \textbf{Exact algorithms:} Are there test instances available? What is the largest size solved exactly?
+\item \textbf{Previous heuristics:} Which heuristics already exist, and how good are they (size solved, error, and time)?
+\item \textbf{Algorithmic steps:} What moves and neighborhoods are used? Is there existing code we can reuse?
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Why do we need this information?}
+\begin{itemize}
+\item \textbf{Question 1 (Justification):} Tells us if we really need a VNS heuristic.
+\vspace{0.2cm}
+\item \textbf{Questions 2 \& 3 (Benchmarking):} Give us a reference to test our VNS:
+    \begin{itemize}
+    \item It must find the optimal solution for almost all instances solved by exact methods.
+    \item To be useful, it must match previous heuristics and perform \textbf{much better} on several instances.
+    \end{itemize}
+\vspace{0.2cm}
+\item \textbf{Question 4 (Ingredients \& Reuse):} Helps us choose neighborhoods for VND, find unexplored ideas, and reuse standard code.
+\end{itemize}
 \end{frame}
 
 \end{document}
