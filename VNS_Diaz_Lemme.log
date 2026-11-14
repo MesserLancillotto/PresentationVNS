@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.11.13)  13 NOV 2026 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.11.13)  14 NOV 2026 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -859,6 +859,90 @@ Overfull \hbox (76.34537pt too wide) has occurred while \output is active
 [9
 
 ]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 138--138
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[10
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 153--153
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[11
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 168--168
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[12
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 182--182
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[13
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 202--202
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[14
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 217--217
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[15
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 227--227
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[16
+
+]
 \tf@nav=\write6
 \openout6 = `VNS_Diaz_Lemme.nav'.
 
@@ -874,21 +958,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `VNS_Diaz_Lemme.out' has not changed.
-(rerunfilecheck)             Checksum: 1CBBF52B14FEC4FC854D4CA2C6956117;470.
+(rerunfilecheck)             Checksum: 0830BBE7D2991F94AD1438E06A6AE194;1577.
  ) 
 Here is how much of TeX's memory you used:
- 23308 strings out of 476182
- 449212 string characters out of 5795594
+ 23377 strings out of 476182
+ 449921 string characters out of 5795594
  1936975 words of memory out of 5000000
- 44820 multiletter control sequences out of 15000+600000
- 565580 words of font info for 63 fonts, out of 8000000 for 9000
+ 44867 multiletter control sequences out of 15000+600000
+ 568937 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,16n,107p,523b,701s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on VNS_Diaz_Lemme.pdf (9 pages, 121751 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on VNS_Diaz_Lemme.pdf (16 pages, 168610 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 22 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 592 PDF objects out of 1000 (max. 8388607)
+ 512 compressed objects within 6 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,3 +2,9 @@
 \beamer@sectionintoc {1}{Problem definition}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{A little notation}{3}{0}{1}
 \beamer@sectionintoc {2}{Preliminaries: Documentation}{8}{0}{2}
+\beamer@sectionintoc {3}{Variable Neighborhood Descent (VND)}{10}{0}{3}
+\beamer@subsectionintoc {3}{1}{Local Search Basics}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{The VND Method}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{Design Considerations}{13}{0}{3}
+\beamer@sectionintoc {4}{Reduced Variable Neighborhood Search (RVNS)}{14}{0}{4}
+\beamer@subsectionintoc {4}{1}{The RVNS Method}{14}{0}{4}

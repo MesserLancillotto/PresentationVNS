@@ -120,4 +120,110 @@ We study the literature to answer four main questions:
 \end{itemize}
 \end{frame}
 
+%  a partir de aqui todo esto es del punto 3
+
+
+\section{Variable Neighborhood Descent (VND)}
+
+\subsection{Local Search Basics}
+\begin{frame}{Descent heuristics}
+\quad Before talking about VND, let's define two basic local search methods starting from an initial solution $(x)$ within a neighborhood $N(x)$:
+
+\vspace{0.3cm}
+\begin{itemize}
+\item \textbf{Steepest descent (Best improvement):} Checks the entire neighborhood $N(x)$ and moves to the best neighbor $x' = \arg\min_{y \in N(x)} f(y)$ if $f(x') < f(x)$.
+\vspace{0.2cm}
+\item \textbf{First descent (First improvement):} Checks neighbors one by one and moves to the first neighbor $x'$ that improves $f(x)$. It is faster when $N(x)$ is big.
+\end{itemize}
+\end{frame}
+
+\subsection{The VND Method}
+\begin{frame}{VND: Idea and Objective}
+\quad Basic descent methods use only one neighborhood, so they stop at the first local minimum. \textbf{Variable Neighborhood Descent (VND)} solves this by combining several neighborhoods in a deterministic way.
+
+\vspace{0.2cm}
+\quad It is based on a simple idea: a local minimum for one neighborhood $N_1(x)$ is not necessarily a local minimum for another neighborhood $N_2(x)$.
+
+\vspace{0.3cm}
+\textbf{Main objective:}
+\begin{itemize}
+\item Escape local optima by changing to a new neighborhood $N_\ell$ when the search gets stuck.
+\item Find a better solution that is a local optimum for all neighborhoods ($N_1, \dots, N_{\ell_{\max}}$).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How Basic VND works}
+\textbf{Initialization:} Choose a set of neighborhoods $N_\ell$ ($\ell = 1, \dots, \ell_{\max}$) and find an initial solution $x$.
+
+\vspace{0.2cm}
+\textbf{Main loop} (repeat until no improvement is found):
+\begin{enumerate}
+\item Set $\ell \leftarrow 1$.
+\item Repeat until $\ell = \ell_{\max}$:
+    \begin{itemize}
+    \item \textbf{Explore:} Find the best neighbor $x' \in N_\ell(x)$.
+    \item \textbf{Move or change:} If $f(x') < f(x)$, set $x \leftarrow x'$ and go back to $\ell \leftarrow 1$; otherwise, try the next neighborhood $\ell \leftarrow \ell + 1$.
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\subsection{Design Considerations}
+\begin{frame}{Practical considerations}
+\quad To make VND work well, we need to think about three things:
+
+\vspace{0.3cm}
+\begin{itemize}
+\item \textbf{Order \& Speed:} Order neighborhoods from smallest (fastest) to largest (slowest), going back to $\ell = 1$ after every improvement to save time.
+\vspace{0.2cm}
+\item \textbf{Exploration:} Simple moves might not be enough to escape narrow valleys, so we may need bigger moves.
+\vspace{0.2cm}
+\item \textbf{Precision:} We can use all the potential of VND if we use it in or with some other method like VNS. This mix could give us better and faster solutions.
+\end{itemize}
+\end{frame}
+
+
+%   a partir de aqui estamos en la seccion 4
+
+\section{Reduced Variable Neighborhood Search (RVNS)}
+
+\subsection{The RVNS Method}
+\begin{frame}{RVNS: Idea and Key Questions}
+\quad Now we will talk about, \textbf{Reduced VNS (RVNS)} which is a pure \textbf{probabilistic} method. Instead of doing a full local search, it picks random points from nested neighborhoods to escape local minima.
+
+\vspace{0.3cm}
+To leave a valley without prior knowledge, RVNS answers three questions:
+\begin{itemize}
+\item \textbf{Which direction to go?} Choose a direction at random, so any point can be reached.
+\vspace{0.15cm}
+\item \textbf{How far?} Start close to $(x)$, due to the fact that good local optima tend to be near each other.
+\vspace{0.15cm}
+\item \textbf{What if moves fail?} Go further by switching to a larger neighborhood $N_{k+1}(x)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How RVNS works}
+\textbf{Initialization:} Choose nested neighborhood structures $N_k$ ($k = 1, \dots, k_{\max}$), an initial solution $x$, and a stopping condition (e.g., max time or iterations).
+
+\vspace{0.2cm}
+\textbf{Main loop} (repeat until the stopping condition is met):
+\begin{enumerate}
+\item Set $k \leftarrow 1$.
+\item Repeat until $k = k_{\max}$:
+    \begin{itemize}
+    \item \textbf{Shaking:} Pick a random point $x' \in N_k(x)$.
+    \item \textbf{Move or not:} If $f(x') < f(x)$, move there ($x \leftarrow x'$) and go back to $N_1$ ($k \leftarrow 1$); otherwise, try a larger neighborhood ($k \leftarrow k + 1$).
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Why use RVNS?}
+    \begin{itemize}
+        \item \textbf{Speed:} By omitting the deterministic local search phase, each iteration evaluates only a single random point, making it extremely fast.
+        \vspace{0.3cm}
+        \item \textbf{Focused exploration:} Nested neighborhoods ($\mathcal{N}_1(x) \subset \mathcal{N}_2(x) \subset \dots \subset \mathcal{N}_{k_{\max}}(x)$) analyze the closest neighborhoods of $(x)$ more intensively before jumping to distant regions.
+        \vspace{0.3cm}
+        \item \textbf{Role in VNS:} Ideal when local descent is computationally too expensive, or as a fast stochastic initialization step to improve the starting solution in General VNS.
+    \end{itemize}
+\end{frame}
+
 \end{document}
