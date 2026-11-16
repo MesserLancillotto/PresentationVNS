@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.11.13)  14 NOV 2026 19:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.11.13)  16 NOV 2026 19:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -761,6 +761,10 @@ Overfull \hbox (76.34537pt too wide) in paragraph at lines 21--21
  []
 
 (./VNS_Diaz_Lemme.toc)
+Overfull \vbox (50.05453pt too high) detected at line 21
+ []
+
+
 Overfull \hbox (76.34537pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
@@ -943,6 +947,150 @@ Overfull \hbox (76.34537pt too wide) has occurred while \output is active
 [16
 
 ]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 249--249
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[17
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 266--266
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[18
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 279--279
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[19
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 295--295
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[20
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 312--312
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[21
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 331--331
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[22
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 347--347
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[23
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 363--363
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[24
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 383--383
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[25
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 399--399
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[26
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 419--419
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[27
+
+]
+Overfull \hbox (76.34537pt too wide) in paragraph at lines 441--441
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+Overfull \hbox (76.34537pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[28
+
+]
 \tf@nav=\write6
 \openout6 = `VNS_Diaz_Lemme.nav'.
 
@@ -958,21 +1106,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `VNS_Diaz_Lemme.out' has not changed.
-(rerunfilecheck)             Checksum: 0830BBE7D2991F94AD1438E06A6AE194;1577.
+(rerunfilecheck)             Checksum: 1BA3FC1C4E503820A6D8870B51248CCF;3857.
  ) 
 Here is how much of TeX's memory you used:
- 23377 strings out of 476182
- 449921 string characters out of 5795594
- 1936975 words of memory out of 5000000
- 44867 multiletter control sequences out of 15000+600000
+ 23478 strings out of 476182
+ 450920 string characters out of 5795594
+ 1944975 words of memory out of 5000000
+ 44932 multiletter control sequences out of 15000+600000
  568937 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,16n,107p,523b,701s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on VNS_Diaz_Lemme.pdf (16 pages, 168610 bytes).
+Output written on VNS_Diaz_Lemme.pdf (28 pages, 204512 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 512 compressed objects within 6 object streams
- 42 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 988 PDF objects out of 1000 (max. 8388607)
+ 881 compressed objects within 9 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 

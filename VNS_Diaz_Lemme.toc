@@ -8,3 +8,15 @@
 \beamer@subsectionintoc {3}{3}{Design Considerations}{13}{0}{3}
 \beamer@sectionintoc {4}{Reduced Variable Neighborhood Search (RVNS)}{14}{0}{4}
 \beamer@subsectionintoc {4}{1}{The RVNS Method}{14}{0}{4}
+\beamer@sectionintoc {5}{Basic and General VNS}{17}{0}{5}
+\beamer@subsectionintoc {5}{1}{Combining VND and RVNS}{17}{0}{5}
+\beamer@subsectionintoc {5}{2}{Basic VNS}{18}{0}{5}
+\beamer@subsectionintoc {5}{3}{General VNS and Neighborhood Design}{20}{0}{5}
+\beamer@sectionintoc {6}{Skewed Variable Neighborhood Search (SVNS)}{22}{0}{6}
+\beamer@subsectionintoc {6}{1}{Motivation and Idea}{22}{0}{6}
+\beamer@subsectionintoc {6}{2}{The Decision Criterion and Algorithm}{23}{0}{6}
+\beamer@sectionintoc {7}{Variable Neighborhood Decomposition Search (VNDS)}{25}{0}{7}
+\beamer@subsectionintoc {7}{1}{Introduction and Idea}{25}{0}{7}
+\beamer@subsectionintoc {7}{2}{Comparison and Algorithm}{26}{0}{7}
+\beamer@sectionintoc {8}{Performance Analysis}{27}{0}{8}
+\beamer@sectionintoc {9}{Conclusions}{28}{0}{9}

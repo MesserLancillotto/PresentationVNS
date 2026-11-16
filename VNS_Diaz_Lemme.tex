@@ -226,4 +226,219 @@ To leave a valley without prior knowledge, RVNS answers three questions:
     \end{itemize}
 \end{frame}
 
+
+
+%a partir de aqui esto es la seccion 5 
+
+\section{Basic and General VNS}
+
+\subsection{Combining VND and RVNS}
+\begin{frame}{From VND and RVNS to VNS}
+\quad In the previous sections, we saw two complementary tools:
+\begin{itemize}
+\item \textbf{VND:} Uses deterministic local search to find good local optima, but can still get trapped in deep valleys.
+\item \textbf{RVNS:} Uses random shaking to escape valleys fast, but does not refine solutions with local descent.
+\end{itemize}
+
+\vspace{0.3cm}
+\quad \textbf{Variable Neighborhood Search (VNS)} combines both ideas:
+\begin{itemize}
+\item \textbf{Basic VNS:} Combines random shaking with a simple local search.
+\item \textbf{General VNS (GVNS):} Improves the initial solution with \textbf{RVNS} and uses \textbf{VND} as the local search method.
+\end{itemize}
+\end{frame}
+
+\subsection{Basic VNS}
+\begin{frame}{How Basic VNS works}
+\textbf{Initialization:} Choose neighborhood structures $\mathcal{N}_k$ ($k = 1, \dots, k_{\max}$), an initial solution $x$, and a stopping condition.
+
+\vspace{0.2cm}
+\textbf{Main loop} (repeat until the stopping condition is met):
+\begin{enumerate}
+\item Set $k \leftarrow 1$.
+\item Repeat until $k = k_{\max}$:
+    \begin{itemize}
+    \item \textbf{Shaking:} Pick a random point $x' \in \mathcal{N}_k(x)$.
+    \item \textbf{Local search:} Apply a local search starting from $x'$ to get a local optimum $x''$.
+    \item \textbf{Move or not:} If $f(x'') < f(x)$, move there ($x \leftarrow x''$) and reset $k \leftarrow 1$; otherwise, set $k \leftarrow k + 1$.
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The three possible outcomes}
+\quad After applying local search to $x'$, we obtain a local minimum $x''$. There are three possible cases:
+
+\vspace{0.3cm}
+\begin{enumerate}
+\item \textbf{$x'' = x$:} We fell back to the bottom of the same valley. We continue with the next neighborhood ($k \leftarrow k + 1$).
+\vspace{0.2cm}
+\item \textbf{$x'' \neq x$ and $f(x'') \geq f(x)$:} We found a different local minimum, but it is not better than our current best solution. We continue with $k \leftarrow k + 1$.
+\vspace{0.2cm}
+\item \textbf{$x'' \neq x$ and $f(x'') < f(x)$:} We found a better local minimum. We update $x \leftarrow x''$ and restart from the first neighborhood ($k \leftarrow 1$).
+\end{enumerate}
+\end{frame}
+
+\subsection{General VNS and Neighborhood Design}
+\begin{frame}{General VNS (GVNS)}
+\quad \textbf{General VNS} upgrades Basic VNS by using variable neighborhoods in both phases:
+
+\vspace{0.2cm}
+\textbf{Initialization:} Select shaking neighborhoods $\mathcal{N}_k$ ($k = 1, \dots, k_{\max}$) and descent neighborhoods $N_\ell$ ($\ell = 1, \dots, \ell_{\max}$). Find an initial solution $x$ and improve it with \textbf{RVNS}.
+
+\vspace{0.2cm}
+\textbf{Main loop} (for $k = 1, \dots, k_{\max}$):
+\begin{enumerate}
+\item \textbf{Shaking:} Generate a random point $x' \in \mathcal{N}_k(x)$.
+\item \textbf{Local search by VND:} Apply VND starting from $x'$ using $N_1, \dots, N_{\ell_{\max}}$ to obtain $x''$.
+\item \textbf{Move or not:} If $f(x'') < f(x)$, set $x \leftarrow x''$ and $k \leftarrow 1$; otherwise, $k \leftarrow k + 1$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Neighborhood properties}
+\quad To avoid getting trapped and ensure we can reach the global optimum, neighborhoods should satisfy:
+
+\vspace{0.2cm}
+\begin{itemize}
+\item \textbf{Cover the feasible space:} From any solution $x \in X$, the union of neighborhoods should cover $X$:
+\begin{gather*}
+    X \subseteq \mathcal{N}_1(x) \cup \mathcal{N}_2(x) \cup \dots \cup \mathcal{N}_{k_{\max}}(x) \ \forall x \in X
+\end{gather*}
+\item \textbf{Nested structures:} Usually built by repeating a basic move $k$ times, so sizes increase:
+\begin{gather*}
+    \mathcal{N}_1(x) \subset \mathcal{N}_2(x) \subset \dots \subset \mathcal{N}_{k_{\max}}(x), \quad X \subset \mathcal{N}_{k_{\max}}(x)
+\end{gather*}
+This explores close regions more thoroughly before jumping far.
+\end{itemize}
+\end{frame}
+
+% a partir de aqui va a ser la seccion 7
+
+\section{Skewed Variable Neighborhood Search (SVNS)}
+
+\subsection{Motivation and Idea}
+\begin{frame}{Skewed VNS?}
+\quad Standard VNS works best when good local optima are close to each other. However, some problems have \textbf{several deep valleys located far apart}.
+
+\vspace{0.2cm}
+In those cases, standard VNS has two issues:
+\begin{itemize}
+\item Using very large neighborhoods makes it behave like a random \textit{multistart}.
+\item If the current solution $x$ is not in the deepest valley, staying strictly near it prevents finding better distant regions.
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Skewed VNS (SVNS)} solves this by allowing the search to move to a new valley even if its local minimum is slightly worse than $x$, as long as it is \textbf{far away}.
+\end{frame}
+
+\subsection{The Decision Criterion and Algorithm}
+\begin{frame}{When is it worth moving?}
+\quad To decide if moving to a new local optimum $x''$ is worth it, SVNS relaxes the acceptance rule by adding a distance bonus:
+\begin{gather*}
+    f(x'') - \alpha \rho(x, x'') < f(x)
+\end{gather*}
+where:
+\begin{itemize}
+\item $\rho(x, x'')$ is the \textbf{distance} between the current solution $x$ and $x''$.
+\item $\alpha > 0$ is a parameter that controls the compensation between solution quality and distance.
+\end{itemize}
+
+\vspace{0.2cm}
+$\Rightarrow$ If $x''$ is far enough from $x$, we accept it to explore that new valley, even if $f(x'') \geq f(x)$.
+\end{frame}
+
+\begin{frame}{How SVNS works}
+\textbf{Initialization:} Choose neighborhoods $\mathcal{N}_k$ ($k = 1, \dots, k_{\max}$), an initial solution $x$, set $x_{opt} \leftarrow x$, $f_{opt} \leftarrow f(x)$, and choose $\alpha$.
+
+\vspace{0.5cm}
+\textbf{Main loop} (for $k = 1, \dots, k_{\max}$):
+\vspace{0.1cm}
+\begin{enumerate}
+\item \textbf{Shaking:} Generate a random point $x' \in \mathcal{N}_k(x)$.
+\item \textbf{Local search:} Apply local search from $x'$ to obtain $x''$.
+\item \textbf{Save best:} If $f(x'') < f_{opt}$, update $x_{opt} \leftarrow x''$ and $f_{opt} \leftarrow f(x'')$.
+\item \textbf{Move or not:} If $f(x'') - \alpha \rho(x, x'') < f(x)$, move to $x \leftarrow x''$ and reset $k \leftarrow 1$; otherwise, set $k \leftarrow k + 1$.
+\end{enumerate}
+
+\vspace{0.15cm}
+\end{frame}
+
+
+% a partir de aqui todo es seccion 7
+
+
+\section{Variable Neighborhood Decomposition Search (VNDS)}
+
+\subsection{Introduction and Idea}
+\begin{frame}{What is VNDS?}
+\quad When problem instances are very large, exploring the entire solution space $S$ at every step becomes too slow. \textbf{Variable Neighborhood Decomposition Search (VNDS)} extends Basic VNS into a \textbf{two-level scheme} based on problem decomposition.
+
+\vspace{0.3cm}
+\textbf{Main objectives:}
+\begin{itemize}
+\item Break large, complex problems into smaller, manageable subproblems.
+\item Apply local search only to a small part of the solution while keeping the rest fixed, saving computing time.
+\end{itemize}
+
+\vspace{0.3cm}
+\end{frame}
+
+\subsection{Comparison and Algorithm}
+\begin{frame}{VNDS vs Basic VNS: How it works}
+\textbf{Key difference (Step 2b):} Basic VNS runs local search in the \textbf{whole space} $S$, while VNDS solves a subproblem only inside a \textbf{subspace} $V_k \subseteq \mathcal{N}_k(x)$.
+
+\vspace{0.25cm}
+\textbf{Main loop} (starting from an initial solution $x$, for $k = 1, \dots, k_{\max}$):
+\begin{enumerate}
+\item \textbf{Shaking:} Pick $x' \in \mathcal{N}_k(x)$. Let $y = x' \setminus x$ be the $k$ new attributes in $x'$.
+\item \textbf{Subspace local search:} Optimize only over $y$ to get $y'$, and rebuild the full solution:
+\begin{gather*}
+    x'' = (x' \setminus y) \cup y'
+\end{gather*}
+\item \textbf{Move or not:} If $f(x'') < f(x)$, set $x \leftarrow x''$ and $k \leftarrow 1$; otherwise, set $k \leftarrow k + 1$.
+\end{enumerate}
+\end{frame}
+
+
+%esto es punto 8
+
+\section{Performance Analysis}
+
+\begin{frame}{Diagnostic tools}
+\quad To understand how VNS behaves and tune its design, we use two visual diagnostic tools:
+
+\vspace{0.25cm}
+\begin{itemize}
+\item \textbf{Distance-to-target diagrams:} Plot the distance from the current solution to the best-known optimum at each iteration. They show whether the search is moving closer to the target or getting trapped.
+\vspace{0.25cm}
+\item \textbf{Mountain and valley profiles:} Built by moving step-by-step along a path between two local optima and plotting $f(x)$. They reveal the \textbf{width and height of the barriers} separating valleys:
+    \begin{itemize}
+    \item If barriers are low and optima are clustered, standard VNS works well.
+    \item If valleys are very wide and separated by high mountains, we need larger neighborhoods or \textbf{SVNS}.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+%  indice de cosas
+
+\section{Conclusions}
+
+\begin{frame}{Conclusions: Why VNS works}
+\quad VNS satisfies the eight desirable properties of a good metaheuristic:
+
+\vspace{0.25cm}
+\begin{itemize}
+\item \textbf{Simplicity \& Coherence:} Based on a clear, general principle (systematic neighborhood change) from which all steps naturally follow.
+\vspace{0.15cm}
+\item \textbf{Precision:} Formulated in exact mathematical terms, without relying on physical or biological metaphors.
+\vspace{0.15cm}
+\item \textbf{Efficiency \& Effectiveness:} Finds optimal or near-optimal solutions in moderate computing time.
+\vspace{0.15cm}
+\item \textbf{Robustness:} Performs consistently across many different problem instances, without needing heavy fine-tuning.
+\vspace{0.15cm}
+\item \textbf{User-friendliness \& Innovation:} Easy to understand and use (requires very few or no parameters), enabling new applications.
+\end{itemize}
+\end{frame}
+
+
 \end{document}

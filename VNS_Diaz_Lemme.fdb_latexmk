@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1794680542.82139 "/home/hugo-diaz-delgado/Escritorio/Unibs/PresentationVNS/VNS_Diaz_Lemme.tex" "VNS_Diaz_Lemme.pdf" "VNS_Diaz_Lemme" 1794680543.79685 0
+["pdflatex"] 1794854102.05562 "/home/hugo-diaz-delgado/Escritorio/Unibs/PresentationVNS/VNS_Diaz_Lemme.tex" "VNS_Diaz_Lemme.pdf" "VNS_Diaz_Lemme" 1794854103.3395 0
   "/etc/texmf/web2c/texmf.cnf" 1794584036.13285 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hugo-diaz-delgado/Escritorio/Unibs/PresentationVNS/VNS_Diaz_Lemme.tex" 1794680542.64553 10433 82af65d3e2fbca429dd439e7a26d2e6a ""
+  "/home/hugo-diaz-delgado/Escritorio/Unibs/PresentationVNS/VNS_Diaz_Lemme.tex" 1794854100.56244 20094 552014c1c8430f5a6a95fe0098aa3911 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -209,11 +209,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1794584041.20051 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1794584060 6800792 4c15cff2e5f8cadc37610a0748308d83 ""
-  "VNS_Diaz_Lemme.aux" 1794680543.73873 5276 e01f78fb0225898c84d35bbe10f5fa66 "pdflatex"
-  "VNS_Diaz_Lemme.nav" 1794680543.73979 3239 f66e234fb9ad04f908937bb5c9a5d698 "pdflatex"
-  "VNS_Diaz_Lemme.out" 1794680543.73906 1577 0830bbe7d2991f94ad1438e06a6ae194 "pdflatex"
-  "VNS_Diaz_Lemme.tex" 1794680542.64553 10433 82af65d3e2fbca429dd439e7a26d2e6a ""
-  "VNS_Diaz_Lemme.toc" 1794680543.73979 600 92fe7e6d029e6bb9a9cfe0e67de88df0 "pdflatex"
+  "VNS_Diaz_Lemme.aux" 1794854103.27942 10449 0f2dea28fe33b4b524685c939ffe5ba9 "pdflatex"
+  "VNS_Diaz_Lemme.nav" 1794854103.28068 6447 1b587ca321516aad6e601ddc0e8e7a2f "pdflatex"
+  "VNS_Diaz_Lemme.out" 1794854103.27969 3857 1ba3fc1c4e503820a6d8870b51248ccf "pdflatex"
+  "VNS_Diaz_Lemme.tex" 1794854100.56244 20094 552014c1c8430f5a6a95fe0098aa3911 ""
+  "VNS_Diaz_Lemme.toc" 1794854103.28068 1395 db0da5bc2ef6307bc613eb7590bb4b75 "pdflatex"
   (generated)
   "VNS_Diaz_Lemme.aux"
   "VNS_Diaz_Lemme.log"
